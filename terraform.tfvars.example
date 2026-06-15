@@ -1,0 +1,19 @@
+# Terraform variables for HashiCorp / multi-cloud
+# Copy to terraform.tfvars and fill real values (never commit this file)
+
+region = "us-west"
+
+# Akash provider targeting (example)
+akash_provider_address = "akash18g...sz6xc"  # provider.europlots.com or your chosen audited provider
+
+# Resource sizing for workers
+worker_cpu = 6
+worker_memory = "24Gi"
+worker_storage = "100Gi"
+worker_gpu_count = 1
+worker_gpu_model = "rtx3090"
+
+# Number of Akash worker replicas to start with
+akash_worker_count = 2
+
+# Add variables for Azure VMSS, GCP, RunPod, etc. as you expand
