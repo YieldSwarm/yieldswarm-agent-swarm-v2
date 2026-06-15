@@ -1,25 +1,41 @@
-# YieldSwarm AgentSwarm OS v2.0
+# YieldSwarm v2.0 — Agent Swarm OS + Multi-Cloud DePIN Yield Infrastructure
 
-## Overview
-10,080 AI Agents across 120 Cron Jobs
-Kimiclaw Consensus Council + SuperGrok Strategy Layer
-Helix Chain + Hydrogen Particle Accelerated Shading Tree
-$APN on Pump.fun
-Unstoppable Domains integration
+**Status**: Active Development | Real Infrastructure Shipping
 
-## Deployment
-- Vercel: https://v2-0-bay.vercel.app/
-- Project: https://vercel.com/support-6930s-projects/v2-0/c64SWNEkWaF39C4GcjFPYoLxWgMg
+YieldSwarm is building the autonomous yield layer for DePIN + AI agents across Akash, HashiCorp, Azure, GCP, Vast.ai and RunPod.
 
-## Setup
-1. Copy .env.example to .env
-2. Fill in values securely
-3. Deploy to Vercel or Azure
-4. Wire Unstoppable Domains via Cloudflare nameservers
+## Current Focus (v2.0)
 
-## Business
-Wise: cbrown03777@gmail.com
-UD API Key included in .env.example
+- Multi-cloud GPU worker deployment (Akash first)
+- Ollama-powered inference swarm
+- Next.js Arena frontend with live telemetry
+- HashiCorp Packer + Terraform foundation
+- GitHub Actions CI/CD
 
-## Next
-Fill .env on iPhone, push to GitHub, Vercel auto-deploys.
+## Repository Structure
+
+```
+yieldswarm-agent-swarm-v2/
+├── deploy/                    # Akash SDL + Docker + entrypoint
+├── infra/
+│   ├── packer/               # Golden image builds
+│   ├── terraform/            # Multi-cloud provisioning
+│   └── boundary/             # Secure access
+├── apps/
+│   └── arena/                # Next.js frontend (Vercel)
+├── agents/                    # Runtime + telemetry
+├── .github/workflows/         # CI/CD
+└── README.md
+```
+
+## Quick Start (Akash)
+
+See `deploy/README.md` for full instructions.
+
+## Active Repos
+
+- This repo (v2.0 core)
+- v2.0 (previous frontend experiments)
+- v1.0 (legacy)
+
+We are consolidating into this mono-repo for v2.0 and beyond.

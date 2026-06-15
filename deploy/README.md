@@ -1,10 +1,15 @@
 # YieldSwarm Deployment
 
-## Akash Deployment
+## Akash Deployment (Primary Path)
 
-1. Build and push images
-2. Run akash-deploy.sh in Codespace
+1. Install Akash CLI
+2. Fund your wallet
+3. Create deployment using `deploy-swarm-monolith.yaml`
+4. Extract worker URLs
+5. Wire into Arena frontend
 
-## Multi-Cloud
+## Multi-Cloud (Coming Soon)
 
-Use Terraform + Packer (see infra/ folder)
+- Packer images for consistent workers
+- Terraform for Azure/GCP + Akash bridge
+- Boundary for secure node access
