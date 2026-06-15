@@ -1,17 +1,14 @@
 #!/bin/bash
 set -e
 
-echo "🚀 Starting YieldSwarm GPU Worker Node..."
+MODEL=${MODEL:-llama3.1:8b}
 
 ollama serve &
 
-sleep 10
+sleep 5
+ollama pull $MODEL || true
 
-echo "📥 Pre-loading models..."
-ollama pull llama3.1:8b
-ollama pull qwen2.5:7b
+# Start telemetry server (simple)
+python3 -m http.server 8080 --directory /app/telemetry || true
 
-echo "✅ Models loaded. Starting telemetry..."
-
-node /app/dist/telemetry-server.js &
-exec node /app/dist/worker.js
+wait

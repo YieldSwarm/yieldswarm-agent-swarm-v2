@@ -1,7 +1,6 @@
 version: "2.0"
-
 services:
-  arena:
+  frontend:
     image: ghcr.io/yieldswarm/yieldswarm-arena:latest
     expose:
       - port: 3000
@@ -9,72 +8,22 @@ services:
         to:
           - global: true
 
-  worker:
+  gpu-worker:
     image: ghcr.io/yieldswarm/yieldswarm-worker:latest
+    params:
+      storage:
+        mount:
+          /models: 50Gi
     expose:
       - port: 11434
         as: 11434
         to:
-          - global: false
+          - global: true
     env:
       - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_MODELS=/models
     resources:
-      cpu:
-        units: 6
-      memory:
-        size: 24Gi
-      storage:
-        size: 80Gi
       gpu:
         units: 1
         attributes:
-          vendor:
-            nvidia:
-              - model: rtx3090
-                ram: "24Gi"
-
-profiles:
-  compute:
-    arena:
-      resources:
-        cpu:
-          units: 1
-        memory:
-          size: 2Gi
-        storage:
-          size: 8Gi
-    worker:
-      resources:
-        cpu:
-          units: 6
-        memory:
-          size: 24Gi
-        storage:
-          size: 80Gi
-        gpu:
-          units: 1
-          attributes:
-            vendor:
-              nvidia:
-                model: rtx3090
-                ram: "24Gi"
-
-  placement:
-    akash:
-      attributes:
-        host: akash
-      pricing:
-        arena:
-          denom: uakt
-          amount: 550
-        worker:
-          denom: uakt
-          amount: 2100
-
-deployment:
-  arena:
-    akash:
-      count: 1
-  worker:
-    akash:
-      count: 2
+          vendor: nvidia
